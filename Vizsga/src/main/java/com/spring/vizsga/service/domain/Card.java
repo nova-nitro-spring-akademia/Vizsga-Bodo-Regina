@@ -1,4 +1,4 @@
-package com.spring.vizsga.service;
+package com.spring.vizsga.service.domain;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -10,6 +10,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
+import java.time.LocalDate;
 
 public class Card {
 
@@ -28,6 +29,11 @@ public class Card {
     private int printYear;
 
     private int originalPrice;
+
+
+    public double estimatedValue(){
+        return (originalPrice * (LocalDate.now().getYear()-printYear) * 1.1);
+    }
 
     public int getId() {
         return id;

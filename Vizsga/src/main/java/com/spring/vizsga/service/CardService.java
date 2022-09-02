@@ -3,10 +3,9 @@ package com.spring.vizsga.service;
 import com.spring.vizsga.data.CardEntity;
 import com.spring.vizsga.data.CardEntityMapper;
 import com.spring.vizsga.data.CardEntityRepository;
+import com.spring.vizsga.service.domain.Card;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Service

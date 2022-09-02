@@ -1,10 +1,7 @@
 package com.spring.vizsga.data;
 
-import com.spring.vizsga.service.Card;
-import org.mapstruct.BeanMapping;
+import com.spring.vizsga.service.domain.Card;
 import org.mapstruct.Mapper;
-import org.mapstruct.MappingTarget;
-import org.mapstruct.NullValuePropertyMappingStrategy;
 
 import java.util.List;
 
