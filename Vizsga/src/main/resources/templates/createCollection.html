@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Colleciton</title>
+</head>
+<body>
+
+<h1>Create</h1>
+
+<form action="#" th:action="@{/createCollection}" method="post">
+  <span>New Card</span>
+  <table border="1">
+    <tr>
+      <td>Name</td>
+      <td><input type="text" th:name="name" /></td>
+    </tr>
+    <tr>
+      <td><input type="submit" value="Submit" /></td>
+    </tr>
+  </table>
+</form>
+
+
+<a href="/list">Back</a>
+
+</body>
+</html>

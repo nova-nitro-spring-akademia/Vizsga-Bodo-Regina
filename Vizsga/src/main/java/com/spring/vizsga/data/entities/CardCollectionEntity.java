@@ -15,6 +15,21 @@ public class CardCollectionEntity {
     @OneToMany
     private List<CardEntity> cards;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<CardEntity> getCards() {
+        return cards;
+    }
+
+    public void setCards(List<CardEntity> cards) {
+        this.cards = cards;
+    }
 
     public int getId() {
         return id;
