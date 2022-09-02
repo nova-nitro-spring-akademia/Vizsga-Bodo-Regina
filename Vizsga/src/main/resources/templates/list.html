@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+    <ul>
+        <li th:each="card: ${cards}">
+            <span th:text="${card.name}" />
+           <!-- <span th:if="${person.needsSalaryRaise}"> (!)</span>
+            <a th:href="'/edit/'+${person.getId}">Edit</a> -->
+        </li>
+        <li><a th:href="@{/createCardPage}">New Card</a></li>
+        <!--<li><a th:href="">New Pakli</a></li>-->
+    </ul>
+</body>
+</html>
