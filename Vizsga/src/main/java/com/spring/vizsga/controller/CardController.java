@@ -1,7 +1,10 @@
 package com.spring.vizsga.controller;
 
+import com.spring.vizsga.controller.dtos.CardDTO;
+import com.spring.vizsga.controller.dtos.CardDTOMapper;
 import com.spring.vizsga.data.CardEntity;
 import com.spring.vizsga.data.CardEntityRepository;
+import com.spring.vizsga.service.CardService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -11,40 +14,46 @@ import java.util.List;
 @RequestMapping("/api")
 public class CardController {
 
-    private CardEntityRepository repository;
+    private CardService service;
 
-    public CardController(CardEntityRepository repository) {
-        this.repository = repository;
+    private CardDTOMapper mapper;
+
+    public CardController(CardService service, CardDTOMapper mapper) {
+        this.service = service;
+        this.mapper = mapper;
     }
 
     @PostMapping("/saveCard")
-    public CardEntity saveCard(@Valid @RequestBody CardEntity cardEntity){
-       return repository.save(cardEntity);
+    public CardDTO saveCard(@Valid @RequestBody CardDTO cardDTO){
+       return mapper.cardToCardDTO(
+                service.saveCard(
+                       mapper.cardDTOToCard(cardDTO)
+                ));
     }
 
     @GetMapping("/getAll")
-    public List<CardEntity> getAllCards(){
-        return repository.findAll();
+    public List<CardDTO> getAllCards(){
+        return mapper.cardListToCardDTOList(
+                service.getAllCards());
     }
 
     @GetMapping("/getOne/{id}")
-    public CardEntity getOneCard(@PathVariable int id){
-        return repository.findById(id).get();
+    public CardDTO getOneCard(@PathVariable int id){
+        return mapper.cardToCardDTO(
+                service.getOneCard(id));
     }
 
     @DeleteMapping("/deleteOne/{id}")
-    public CardEntity deleteOneCard(@PathVariable int id){
-        CardEntity deletedCardEntity = repository.findById(id).get();
-        repository.deleteById(id);
-        return deletedCardEntity;
+    public CardDTO deleteOneCard(@PathVariable int id){
+        return mapper.cardToCardDTO(
+                service.deleteOneCard(id));
     }
 
     @PutMapping("/putOne/{oldsId}")
-    public CardEntity putOneCard(@Valid @RequestBody CardEntity newCardEntity,@PathVariable int oldsId){
-        CardEntity oldCardEntity = repository.findById(oldsId).get();
-        newCardEntity.setId(oldsId);
-        repository.save(newCardEntity);
-        return oldCardEntity;
+    public CardDTO putOneCard(@Valid @RequestBody CardDTO newCardDTO,@PathVariable int oldsId){
+        return mapper.cardToCardDTO(
+                    service.putOneCard(
+                        mapper.cardDTOToCard(newCardDTO),oldsId ));
     }
 
 
