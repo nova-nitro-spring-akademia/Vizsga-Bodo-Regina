@@ -1,4 +1,4 @@
-package com.spring.vizsga.data;
+package com.spring.vizsga.data.entities;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -36,6 +36,17 @@ public class CardEntity {
 
     @Positive
     private int originalPrice;
+
+    @ManyToOne
+    private CardCollectionEntity inCollection;
+
+    public CardCollectionEntity getInCollection() {
+        return inCollection;
+    }
+
+    public void setInCollection(CardCollectionEntity inCollection) {
+        this.inCollection = inCollection;
+    }
 
     public String getName() {
         return name;

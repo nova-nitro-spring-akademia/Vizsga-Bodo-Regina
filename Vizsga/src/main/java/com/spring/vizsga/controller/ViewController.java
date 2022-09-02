@@ -1,10 +1,7 @@
 package com.spring.vizsga.controller;
 
-import com.spring.vizsga.data.CardEntity;
-import com.spring.vizsga.data.CardEntityRepository;
 import com.spring.vizsga.service.CardService;
 import com.spring.vizsga.service.domain.Card;
-import com.sun.xml.bind.v2.TODO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

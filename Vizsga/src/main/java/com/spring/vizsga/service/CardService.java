@@ -1,7 +1,7 @@
 package com.spring.vizsga.service;
 
-import com.spring.vizsga.data.CardEntity;
-import com.spring.vizsga.data.CardEntityMapper;
+import com.spring.vizsga.data.entities.CardEntity;
+import com.spring.vizsga.data.entities.CardEntityMapper;
 import com.spring.vizsga.data.CardEntityRepository;
 import com.spring.vizsga.service.domain.Card;
 import org.springframework.stereotype.Service;

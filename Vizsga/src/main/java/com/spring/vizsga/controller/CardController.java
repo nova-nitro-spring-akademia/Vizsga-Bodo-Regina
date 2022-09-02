@@ -2,8 +2,6 @@ package com.spring.vizsga.controller;
 
 import com.spring.vizsga.controller.dtos.CardDTO;
 import com.spring.vizsga.controller.dtos.CardDTOMapper;
-import com.spring.vizsga.data.CardEntity;
-import com.spring.vizsga.data.CardEntityRepository;
 import com.spring.vizsga.service.CardService;
 import org.springframework.web.bind.annotation.*;
 

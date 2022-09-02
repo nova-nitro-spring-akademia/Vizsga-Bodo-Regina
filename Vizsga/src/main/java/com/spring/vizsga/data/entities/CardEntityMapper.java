@@ -1,4 +1,4 @@
-package com.spring.vizsga.data;
+package com.spring.vizsga.data.entities;
 
 import com.spring.vizsga.service.domain.Card;
 import org.mapstruct.Mapper;
