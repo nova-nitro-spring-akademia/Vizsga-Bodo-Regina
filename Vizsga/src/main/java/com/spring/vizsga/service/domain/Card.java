@@ -32,7 +32,7 @@ public class Card {
 
 
     public double estimatedValue(){
-        return (originalPrice * (LocalDate.now().getYear()-printYear) * 1.1);
+        return Math.round(originalPrice * (LocalDate.now().getYear()-printYear) * 1.1);
     }
 
     public int getId() {
