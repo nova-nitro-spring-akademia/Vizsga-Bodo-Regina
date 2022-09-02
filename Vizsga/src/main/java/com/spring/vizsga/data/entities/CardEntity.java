@@ -37,16 +37,8 @@ public class CardEntity {
     @Positive
     private int originalPrice;
 
-    @ManyToOne
-    private CardCollectionEntity inCollection;
 
-    public CardCollectionEntity getInCollection() {
-        return inCollection;
-    }
-
-    public void setInCollection(CardCollectionEntity inCollection) {
-        this.inCollection = inCollection;
-    }
+    private int cardCollectionId;
 
     public String getName() {
         return name;
@@ -112,5 +104,11 @@ public class CardEntity {
         this.id = id;
     }
 
+    public int getCardCollectionId() {
+        return cardCollectionId;
+    }
 
+    public void setCardCollectionId(int cardCollectionId) {
+        this.cardCollectionId = cardCollectionId;
+    }
 }

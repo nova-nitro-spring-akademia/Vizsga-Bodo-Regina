@@ -33,6 +33,8 @@ public class CardDTO {
     @Positive
     private int originalPrice;
 
+    private int cardCollectionId;
+
     public int getId() {
         return id;
     }
@@ -95,5 +97,12 @@ public class CardDTO {
 
     public void setOriginalPrice(int originalPrice) {
         this.originalPrice = originalPrice;
+    }
+
+    public int getCardCollectionId() {
+        return cardCollectionId;
+    }
+    public void setCardCollectionId(int cardCollectionId) {
+        this.cardCollectionId = cardCollectionId;
     }
 }

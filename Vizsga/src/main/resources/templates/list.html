@@ -9,6 +9,7 @@
         <li th:each="card: ${cards}">
             <span th:text="${card.name}" />
             <span th:text="${card.estimatedValue()}"/>
+            <a th:href="'/edit/'+${card.getId}">Edit</a>
            <!-- <span th:if="${person.needsSalaryRaise}"> (!)</span>
             <a th:href="'/edit/'+${person.getId}">Edit</a> -->
         </li>

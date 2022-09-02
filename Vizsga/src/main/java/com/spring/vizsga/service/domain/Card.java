@@ -20,6 +20,7 @@ public class Card {
 
     private int originalPrice;
 
+    private int cardCollectionId;
 
     public double estimatedValue(){
         return Math.round(originalPrice * (LocalDate.now().getYear()-printYear) * 1.1);
@@ -87,5 +88,13 @@ public class Card {
 
     public void setOriginalPrice(int originalPrice) {
         this.originalPrice = originalPrice;
+    }
+
+    public int getCardCollectionId() {
+        return cardCollectionId;
+    }
+
+    public void setCardCollectionId(int cardCollectionId) {
+        this.cardCollectionId = cardCollectionId;
     }
 }

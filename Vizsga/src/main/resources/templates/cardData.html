@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Card Data page</title>
+</head>
+<body>
+<form action="#" th:action="@{/editCard}" th:object="${card}" method="post">
+  <span>New Card</span>
+  <input type="hidden" th:field="*{id}" />
+  <table border="1">
+    <tr>
+      <td>Name</td>
+      <td><input type="text" th:field="*{name}" /></td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td><input type="text" th:field="*{type}" /></td>
+    </tr>
+    <tr>
+      <td>Rarity</td>
+      <td><input type="number" th:field="*{rarity}" /></td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td><input type="number" th:field="*{pricePayed}" /></td>
+    </tr>
+    <tr>
+      <td>Year of acquiry</td>
+      <td><input type="number" th:field="*{yearAcquired}" /></td>
+    </tr>
+    <tr>
+      <td>Year of print</td>
+      <td><input type="number" th:field="*{printYear}" /></td>
+    </tr>
+    <tr>
+      <td>Original Price</td>
+      <td><input type="number" th:field="*{originalPrice}" /></td>
+    </tr>
+    <tr>
+      <td>Collection</td>
+      <td>
+        <select th:field="*{cardCollectionId}" th:name="cardCollectionId" >
+        <option th:each="collection: ${collections}" th:text="${collection.name}" th:value="${collection.id}"  />
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><input type="submit" value="Submit" /></td>
+    </tr>
+  </table>
+</form>
+
+
+
+<a href="/list">Back</a>
+</body>
+</html>

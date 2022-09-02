@@ -36,4 +36,8 @@ public class CardCollection {
     public void setCards(List<Card> cards) {
         this.cards = cards;
     }
+
+    public void addCard(Card card){
+        cards.add(card);
+    }
 }

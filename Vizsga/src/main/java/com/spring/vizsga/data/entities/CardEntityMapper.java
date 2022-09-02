@@ -2,6 +2,7 @@ package com.spring.vizsga.data.entities;
 
 import com.spring.vizsga.service.domain.Card;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import java.util.List;
 
@@ -9,11 +10,14 @@ import java.util.List;
 public interface CardEntityMapper {
 
 
+
     CardEntity cardToCardEntity(Card card);
 
     Card cardEntityToCard(CardEntity cardEntity);
 
+
     List<CardEntity> cardListToCardEntityList(List<Card> cards);
+
 
     List<Card> cardEntityListToCardList(List<CardEntity> cardEntities);
 
