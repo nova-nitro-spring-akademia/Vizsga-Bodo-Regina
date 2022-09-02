@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-//todo restful nevezek
 @RestController
-@RequestMapping("/api")
 public class CardController {
 
     private CardService service;
@@ -49,10 +47,10 @@ public class CardController {
     }
 
     @PutMapping("/cards/{id}")
-    public CardDTO putOneCard(@Valid @RequestBody CardDTO newCardDTO,@PathVariable int id){
+    public CardDTO putOneCard(@Valid @RequestBody CardDTO CardDTO,@PathVariable int id){
         return mapper.cardToCardDTO(
                     service.putOneCard(
-                        mapper.cardDTOToCard(newCardDTO),id ));
+                        mapper.cardDTOToCard(CardDTO),id ));
     }
 
 
