@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Value Calculator</title>
+</head>
+<body>
+
+<h1>Value Calculator</h1>
+
+<form action="#" th:action="@{/calcValue}" method="post">
+
+  <table border="1">
+    <tr>
+      <td>Card</td>
+      <td>
+        <select  th:name="cardId" >
+          <option th:each="card: ${cards}" th:text="${card.name}" th:value="${card.id}"  />
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Strategy</td>
+      <td>
+        <select  th:name="strategy" >
+          <option th:each="strategy: ${strategies}" th:text="${strategy}" th:value="${strategy}"  />
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><input type="submit" value="Submit" /></td>
+    </tr>
+  </table>
+</form>
+<div>
+  Value:
+  <span th:text="${value}" />
+</div>
+
+<a href="/list">Back</a>
+
+</body>
+</html>

@@ -22,7 +22,7 @@ public class CardController {
         this.mapper = mapper;
     }
 
-    @PostMapping("/saveCard")
+    @PostMapping("/cards")
     public CardDTO saveCard(@Valid @RequestBody CardDTO cardDTO){
        return mapper.cardToCardDTO(
                 service.saveCard(
@@ -30,29 +30,29 @@ public class CardController {
                 ));
     }
 
-    @GetMapping("/getAll")
+    @GetMapping("/cards")
     public List<CardDTO> getAllCards(){
         return mapper.cardListToCardDTOList(
                 service.getAllCards());
     }
 
-    @GetMapping("/getOne/{id}")
+    @GetMapping("/cards/{id}")
     public CardDTO getOneCard(@PathVariable int id){
         return mapper.cardToCardDTO(
                 service.getOneCard(id));
     }
 
-    @DeleteMapping("/deleteOne/{id}")
+    @DeleteMapping("/cards/{id}")
     public CardDTO deleteOneCard(@PathVariable int id){
         return mapper.cardToCardDTO(
                 service.deleteOneCard(id));
     }
 
-    @PutMapping("/putOne/{oldsId}")
-    public CardDTO putOneCard(@Valid @RequestBody CardDTO newCardDTO,@PathVariable int oldsId){
+    @PutMapping("/cards/{id}")
+    public CardDTO putOneCard(@Valid @RequestBody CardDTO newCardDTO,@PathVariable int id){
         return mapper.cardToCardDTO(
                     service.putOneCard(
-                        mapper.cardDTOToCard(newCardDTO),oldsId ));
+                        mapper.cardDTOToCard(newCardDTO),id ));
     }
 
 

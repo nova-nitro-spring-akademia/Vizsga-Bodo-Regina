@@ -23,7 +23,7 @@ public class Card {
     private int cardCollectionId;
 
     public double estimatedValue(){
-        return Math.round(originalPrice * (LocalDate.now().getYear()-printYear) * 1.1);
+        return (originalPrice * (LocalDate.now().getYear()-printYear) * 1.1);
     }
 
     public int getId() {

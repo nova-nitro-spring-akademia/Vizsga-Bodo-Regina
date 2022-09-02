@@ -6,12 +6,16 @@ import com.spring.vizsga.service.CardCollectionService;
 import com.spring.vizsga.service.CardService;
 import com.spring.vizsga.service.domain.Card;
 import com.spring.vizsga.service.domain.CardCollection;
+import com.spring.vizsga.service.domain.ValueCalculatingStrategy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Controller
 public class ViewController {
@@ -95,6 +99,34 @@ public class ViewController {
         collectionService.saveCardCollection(collection);
 
         return "redirect:/list";
+    }
+
+    @GetMapping("/firstCalc")
+    public String firstcalc(Model model){
+        ValueCalculatingStrategy[] values = ValueCalculatingStrategy.values();
+        List<String> stringValues = Arrays.stream(values).map(Enum::toString).toList();
+        model.addAttribute("cards",cardService.getAllCards());
+        model.addAttribute("strategies", stringValues);
+        return "estimatedValue";
+    }
+    @PostMapping("/calcValue")
+    public String calcValue(Model model,
+                            @RequestParam int cardId,
+                            @RequestParam String strategy){
+        double value = 0;
+        if (strategy != null){
+            Card card = cardService.getOneCard(cardId);
+            ValueCalculatingStrategy str = ValueCalculatingStrategy.valueOf(strategy);
+            value = str.calculate(card);
+        }
+        model.addAttribute("value",value);
+
+        ValueCalculatingStrategy[] values = ValueCalculatingStrategy.values();
+        List<String> stringValues = Arrays.stream(values).map(Enum::toString).toList();
+        model.addAttribute("cards",cardService.getAllCards());
+        model.addAttribute("strategies", stringValues);
+
+        return "estimatedValue";
     }
 
 }
