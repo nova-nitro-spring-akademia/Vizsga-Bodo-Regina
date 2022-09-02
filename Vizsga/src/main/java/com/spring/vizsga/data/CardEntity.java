@@ -1,6 +1,12 @@
 package com.spring.vizsga.data;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 
 @Entity
 public class CardEntity {
@@ -9,18 +15,26 @@ public class CardEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotBlank
+    @Length(max = 20)
     private String name;
 
     private String type;
 
+    @Min(1)
+    @Max(100)
     private int showupPercent;
 
+    @Positive
     private int pricePayed;
 
+    @Positive
     private int yearAcquired;
 
+    @Positive
     private int printYear;
 
+    @Positive
     private int originalPrice;
 
     public String getName() {

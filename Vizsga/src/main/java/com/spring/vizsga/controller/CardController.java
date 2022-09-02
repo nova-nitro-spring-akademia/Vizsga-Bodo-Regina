@@ -4,6 +4,7 @@ import com.spring.vizsga.data.CardEntity;
 import com.spring.vizsga.data.CardEntityRepository;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -16,7 +17,7 @@ public class CardController {
     }
 
     @PostMapping("/saveCard")
-    public CardEntity saveCard(@RequestBody CardEntity cardEntity){
+    public CardEntity saveCard(@Valid @RequestBody CardEntity cardEntity){
        return repository.save(cardEntity);
     }
 
@@ -38,7 +39,7 @@ public class CardController {
     }
 
     @PutMapping("/putOne/{oldsId}")
-    public CardEntity putOneCard(@RequestBody CardEntity newCardEntity,@PathVariable int oldsId){
+    public CardEntity putOneCard(@Valid @RequestBody CardEntity newCardEntity,@PathVariable int oldsId){
         CardEntity oldCardEntity = repository.findById(oldsId).get();
         newCardEntity.setId(oldsId);
         repository.save(newCardEntity);
