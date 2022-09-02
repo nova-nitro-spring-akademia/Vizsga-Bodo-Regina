@@ -2,10 +2,6 @@ package com.spring.vizsga.controller.dtos;
 
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -23,7 +19,7 @@ public class CardDTO {
 
     @Min(1)
     @Max(100)
-    private int showupPercent;
+    private int rarity;
 
     @Positive
     private int pricePayed;
@@ -61,12 +57,12 @@ public class CardDTO {
         this.type = type;
     }
 
-    public int getShowupPercent() {
-        return showupPercent;
+    public int getRarity() {
+        return rarity;
     }
 
-    public void setShowupPercent(int showupPercent) {
-        this.showupPercent = showupPercent;
+    public void setRarity(int rarity) {
+        this.rarity = rarity;
     }
 
     public int getPricePayed() {

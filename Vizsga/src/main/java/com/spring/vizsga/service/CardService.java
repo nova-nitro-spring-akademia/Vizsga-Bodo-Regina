@@ -51,4 +51,9 @@ public class CardService {
         return mapper.cardEntityToCard(oldCardEntity);
     }
 
+    public List<Card> findByRarityGreaterThan(int value){
+        return mapper.cardEntityListToCardList(
+                repository.findByRarityGreaterThan(value));
+    }
+
 }

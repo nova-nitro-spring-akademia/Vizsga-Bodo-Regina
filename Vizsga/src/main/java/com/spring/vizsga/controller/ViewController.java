@@ -4,10 +4,12 @@ import com.spring.vizsga.data.CardEntity;
 import com.spring.vizsga.data.CardEntityRepository;
 import com.spring.vizsga.service.CardService;
 import com.spring.vizsga.service.domain.Card;
+import com.sun.xml.bind.v2.TODO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ViewController {
@@ -41,5 +43,15 @@ public class ViewController {
         return "redirect:/list";
     }
 
+    @GetMapping("/custom")
+    public String custom(){
+        return "customQuery";
+    }
+
+    @PostMapping("/customList")
+    public String showCustomlist(@RequestParam int value, Model model){
+        model.addAttribute("cards",cardService.findByRarityGreaterThan(value));
+        return "customList";
+    }
 
 }

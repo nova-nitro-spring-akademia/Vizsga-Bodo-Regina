@@ -23,7 +23,7 @@ public class CardEntity {
 
     @Min(1)
     @Max(100)
-    private int showupPercent;
+    private int rarity;
 
     @Positive
     private int pricePayed;
@@ -53,12 +53,12 @@ public class CardEntity {
         this.type = type;
     }
 
-    public int getShowupPercent() {
-        return showupPercent;
+    public int getRarity() {
+        return rarity;
     }
 
-    public void setShowupPercent(int showupPercent) {
-        this.showupPercent = showupPercent;
+    public void setRarity(int rarity) {
+        this.rarity = rarity;
     }
 
     public int getPricePayed() {

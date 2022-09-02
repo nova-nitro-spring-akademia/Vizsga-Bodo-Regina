@@ -1,15 +1,5 @@
 package com.spring.vizsga.service.domain;
 
-import org.hibernate.validator.constraints.Length;
-
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Positive;
 import java.time.LocalDate;
 
 public class Card {
@@ -20,7 +10,7 @@ public class Card {
 
     private String type;
 
-    private int showupPercent;
+    private int rarity;
 
     private int pricePayed;
 
@@ -59,12 +49,12 @@ public class Card {
         this.type = type;
     }
 
-    public int getShowupPercent() {
-        return showupPercent;
+    public int getRarity() {
+        return rarity;
     }
 
-    public void setShowupPercent(int showupPercent) {
-        this.showupPercent = showupPercent;
+    public void setRarity(int rarity) {
+        this.rarity = rarity;
     }
 
     public int getPricePayed() {
